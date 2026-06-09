@@ -1,0 +1,9 @@
+{
+  "name": "prestige-dom",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site Prestige Dom — formalites juridiques (static + Vercel serverless)",
+  "dependencies": {
+    "resend": "^4.0.0"
+  }
+}
