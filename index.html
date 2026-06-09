@@ -882,10 +882,27 @@ async function sendLead() {
   const btn = document.getElementById("submit-btn");
   const msg = document.getElementById("form-msg");
 
-  if (!cabinet || !contactName || !email || !telephone) {
+  const showError = (text) => {
     msg.style.display = "block";
     msg.style.color = "#c0392b";
-    msg.textContent = "Merci de remplir tous les champs obligatoires.";
+    msg.textContent = text;
+  };
+
+  if (!cabinet || !contactName || !email || !telephone) {
+    showError("Merci de remplir tous les champs obligatoires.");
+    return;
+  }
+
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+  if (!emailOk) {
+    showError("Merci d'indiquer une adresse email valide (ex. nom@cabinet.fr).");
+    return;
+  }
+
+  const telDigits = telephone.replace(/[\s.\-()]/g, "");
+  const telOk = /^(?:(?:\+|00)33|0)[1-9]\d{8}$/.test(telDigits);
+  if (!telOk) {
+    showError("Merci d'indiquer un numéro de téléphone français valide (ex. 01 83 80 60 33).");
     return;
   }
 
