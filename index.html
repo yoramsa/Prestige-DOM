@@ -19,11 +19,15 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html { scroll-behavior: smooth; }
+
 body {
   font-family: 'DM Sans', sans-serif;
   background: var(--cream);
   color: var(--text);
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(197,168,128,0.25);
 }
 
 .icon { width: 1em; height: 1em; display: inline-block; vertical-align: middle; }
@@ -549,23 +553,68 @@ body {
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
-  .header { padding: 14px 20px; }
-  .header-links a { margin-left: 16px; font-size: 13px; }
-  .hero { padding: 60px 22px 50px; }
-  .hero h1 { font-size: 32px; }
-  .price-banner { padding: 0 22px 50px; }
-  .price-box { padding: 30px 20px; gap: 20px; }
-  .price-figure .amount { font-size: 64px; }
-  .section { padding: 60px 22px; }
-  .services-bg, .contact-bg { padding: 60px 22px; }
-  .pillars, .audience-grid, .services-grid, .guarantees { grid-template-columns: 1fr; }
-  .guarantee { border-right: none; border-bottom: 1px solid rgba(11,31,58,0.08); padding-bottom: 24px; }
-  .guarantee:last-child { border-bottom: none; }
-  .trust-banner { flex-direction: column; text-align: center; padding: 30px 24px; }
-  .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+
+/* Tablettes */
+@media (max-width: 1024px) {
+  .header { padding: 16px 32px; }
+  .hero { padding: 90px 32px 70px; }
+  .hero h1 { font-size: 42px; }
+  .section { padding: 70px 32px; }
+  .services-bg, .contact-bg, .price-banner { padding-left: 32px; padding-right: 32px; }
+  .contact-inner { grid-template-columns: 1fr; gap: 48px; }
   .contact-info h2, .contact-info .section-label { text-align: center; }
-  .form-row { grid-template-columns: 1fr; }
+  .contact-info p { text-align: center; }
+  .contact-detail { justify-content: center; }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+  .header { padding: 14px 18px; }
+  .monogram { font-size: 26px; }
+  .brand-text .name { font-size: 16px; letter-spacing: 2px; }
+  .brand-text .tagline { font-size: 8px; letter-spacing: 1.5px; }
+  .header-links a { margin-left: 14px; font-size: 13px; }
+  .header-links a:not(.tel) { display: none; }
+
+  .hero { padding: 56px 20px 48px; }
+  .hero-label { font-size: 10px; letter-spacing: 2px; padding: 5px 12px; margin-bottom: 22px; }
+  .hero h1 { font-size: 30px; line-height: 1.25; }
+  .hero p { font-size: 15px; }
+
+  .cta-group { flex-direction: column; gap: 12px; }
+  .btn { width: 100%; padding: 15px 24px; text-align: center; }
+
+  .price-banner { padding: 0 20px 48px; }
+  .price-eyebrow { font-size: 14px; padding: 14px; }
+  .price-box { flex-direction: column; padding: 30px 20px; gap: 16px; text-align: center; }
+  .price-figure .amount { font-size: 60px; }
+
+  .section { padding: 54px 20px; }
+  .section h2 { font-size: 30px; margin-bottom: 36px; }
+  .services-bg, .contact-bg { padding: 54px 20px; }
+
+  .pillars, .audience-grid, .services-grid, .guarantees { grid-template-columns: 1fr; }
+  .pillar { padding: 32px 24px; }
+
+  .guarantee { border-right: none; border-bottom: 1px solid rgba(11,31,58,0.08); padding: 24px 10px; }
+  .guarantee:last-child { border-bottom: none; }
+
+  .trust-banner { flex-direction: column; text-align: center; padding: 30px 24px; margin-top: 50px; }
+
+  .contact-info h2 { font-size: 30px; }
+  .form { padding: 28px 22px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+
+  .footer { padding: 32px 22px; }
+  .footer-tag { font-size: 16px; }
+}
+
+/* Petits mobiles */
+@media (max-width: 380px) {
+  .brand-text .tagline { display: none; }
+  .hero h1 { font-size: 26px; }
+  .price-figure .amount { font-size: 50px; }
+  .section h2 { font-size: 26px; }
 }
 </style>
 </head>
